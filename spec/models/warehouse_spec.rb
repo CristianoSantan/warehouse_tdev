@@ -12,6 +12,7 @@ RSpec.describe Warehouse, type: :model do
         # Assert
         # expect(warehouse.valid?).to eq false 
         # expect(warehouse.valid?).to be_falsey
+        # https://github.com/rspec/rspec-expectations
 
         expect(warehouse).not_to be_valid # executa o valid? e espera que seja falso
       end
