@@ -17,12 +17,12 @@ describe "Usuário remove um galpão" do
   end
 
   it "e não apaga outros galpões" do
-    first_warehouse = Warehouse.create!(name: 'Cuiaba', code: 'CWB', city: 'Cuiabá', area: 10000, 
+    first_warehouse = Warehouse.create!(name: 'Cuiaba', code: 'CWB', city: 'Cuiabá', area: 10_000, 
                                         address: 'Avenida dos Jacarés, 1000', cep: '56000-000', 
                                         description: 'Galpão no centro do país')
-    second_warehouse = Warehouse.create!(name: 'Cuiaba', code: 'CWB', city: 'Cuiabá', area: 10000, 
-                                        address: 'Avenida dos Jacarés, 1000', cep: '56000-000', 
-                                        description: 'Galpão no centro do país')
+    second_warehouse = Warehouse.create!(name: 'Belo Horizonte', code: 'BHZ', area: 20000, 
+                                        cep: '64000-000', city: 'Belo Horizonte', 
+                                        description: 'Galpão mineiro', address: 'Av Tiradentes, 20')
 
     visit root_path
     click_on 'Cuiaba'

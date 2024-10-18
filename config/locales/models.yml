@@ -1,7 +1,8 @@
 pt-BR:
   activerecord:
     models:
-      warehouse: Galpão
+      warehouse: "Galpão"
+      supplier: "Fornecedor"
     attributes:
       warehouse:
         name: "Nome"
@@ -11,3 +12,11 @@ pt-BR:
         address: "Endereço"
         cep: "CEP"
         area: "Área"
+      supplier:
+        corporate_name: "Nome Corporativo"
+        brand_name: "Marca"
+        city: "Cidade"
+        registration_number: "Número de Registro"
+        full_address: "Endereço Completo"
+        state: "Estado"
+        email: "E-mail"

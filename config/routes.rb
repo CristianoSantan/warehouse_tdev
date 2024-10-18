@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: 'home#index'
   resources :warehouses, only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :suppliers, only: [:index, :show, :new, :create, :edit, :update]
 
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

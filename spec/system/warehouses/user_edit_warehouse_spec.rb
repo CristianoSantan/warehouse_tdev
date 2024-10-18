@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Usuário cadastra um galpão" do
+describe "Usuário edita um galpão" do
   it "a partir da página de detalhes" do
     # Arrange
     warehouse = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000, 
