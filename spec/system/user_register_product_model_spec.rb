@@ -5,6 +5,9 @@ describe "Usuário cadastra um modelo do produto" do
     supplier = Supplier.create!(corporate_name: 'Samsung Eletronicos LTDA', brand_name: 'Samsung', city: 'São Paulo', 
     registration_number: '100', full_address: "Av Nações Unidas, 1000", 
     state: "SP", email: "contato@samsung.com.br")
+    outher_supplier = Supplier.create!(corporate_name: 'LG do Brasil LTDA', brand_name: 'LG', city: 'São Paulo', 
+    registration_number: '300', full_address: "Av Ibirapuera, 300", 
+    state: "SP", email: "contato@lg.com.br")
 
     visit root_path
     click_on 'Modelos de Produtos'
@@ -26,4 +29,18 @@ describe "Usuário cadastra um modelo do produto" do
     expect(page).to have_content 'Peso: 8000g'
   end
   
+  it "deve preencher todos os campos" do
+    supplier = Supplier.create!(corporate_name: 'Samsung Eletronicos LTDA', brand_name: 'Samsung', city: 'São Paulo', 
+    registration_number: '100', full_address: "Av Nações Unidas, 1000", 
+    state: "SP", email: "contato@samsung.com.br")
+
+    visit root_path
+    click_on 'Modelos de Produtos'
+    click_on 'Cadastrar Novo'
+    fill_in "Nome",	with: "" 
+    fill_in "SKU",	with: ""
+    click_on 'Enviar'
+
+    expect(page).to have_content 'Não foi possível cadastrar o modelo de produto.'
+  end
 end
