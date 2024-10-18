@@ -4,7 +4,7 @@ describe "Usuário cadastra um fornecedor" do
   it "a partir da tela inicial" do
     visit root_path
     click_on 'Fornecedores'
-    click_on 'Cadastrar Fornecedor'
+    click_on 'Cadastrar novo fornecedor'
 
     expect(page).to have_field 'Nome Corporativo'
     expect(page).to have_field 'Marca'
