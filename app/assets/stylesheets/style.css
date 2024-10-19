@@ -1,0 +1,8 @@
+.link {
+  border: 0;
+  background-color: transparent;
+}
+
+nav > form {
+  display: inline;
+}
