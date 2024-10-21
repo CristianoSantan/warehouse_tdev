@@ -22,15 +22,15 @@ describe "Usuário cadastra um pedido" do
     login_as(user)
     visit root_path
     click_on 'Registrar Pedido'
-    select warehouse.name, from: 'Galpão Destino'
+    select 'GRU - Aeroporto SP', from: 'Galpão Destino'
     select supplier.corporate_name, from: 'Fornecedor'
     fill_in "Data Prevista de Entrega",	with: "20/12/2022" 
     click_on 'Gravar'
 
     expect(page).to have_content 'Pedido registrado com sucesso.'
-    expect(page).to have_content 'Galpão Destino: Aeroporto SP'
+    expect(page).to have_content 'Galpão Destino: GRU - Aeroporto SP'
     expect(page).to have_content 'Fornecedor: Samsung Eletronicos LTDA'
-    expect(page).to have_content 'Usuário Responsável: João | <joao@email.com>'
+    expect(page).to have_content 'Usuário Responsável: João - joao@email.com'
     expect(page).to have_content 'Data Prevista de Entrega: 20/12/2022'
     expect(page).not_to have_content 'Galpão Manaus'
     expect(page).not_to have_content 'LG Corporation'
