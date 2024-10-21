@@ -19,6 +19,8 @@ describe "Usuário cadastra um pedido" do
     supplier = Supplier.create!(corporate_name: 'Samsung Eletronicos LTDA', brand_name: 'Samsung', city: 'São Paulo', registration_number: '100', full_address: "Av Nações Unidas, 1000", state: "SP", email: "contato@samsung.com.br")
     ProductModel.create!(name: 'TV 32', weight: 8000, width: 70, height: 45, depth: 10, sku: 'TV32-SAMSU-XPT090', supplier: supplier)
 
+    allow(SecureRandom).to receive(:alphanumeric).with(8).and_return('ABC12345')
+
     login_as(user)
     visit root_path
     click_on 'Registrar Pedido'
@@ -28,6 +30,7 @@ describe "Usuário cadastra um pedido" do
     click_on 'Gravar'
 
     expect(page).to have_content 'Pedido registrado com sucesso.'
+    expect(page).to have_content 'Pedido ABC12345'
     expect(page).to have_content 'Galpão Destino: GRU - Aeroporto SP'
     expect(page).to have_content 'Fornecedor: Samsung Eletronicos LTDA'
     expect(page).to have_content 'Usuário Responsável: João - joao@email.com'
