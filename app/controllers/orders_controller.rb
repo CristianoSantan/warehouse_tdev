@@ -10,8 +10,14 @@ class OrdersController < ApplicationController
     order_params = params.require(:order).permit(:warehouse_id, :supplier_id, :estimated_delivery_date)
     @order = Order.new(order_params)
     @order.user = current_user
-    @order.save 
-    redirect_to @order, notice: 'Pedido registrado com sucesso.'
+    if @order.save 
+      redirect_to @order, notice: 'Pedido registrado com sucesso.'
+    else
+      @warehouses = Warehouse.all
+      @suppliers = Supplier.all
+      flash.now[:notice] = 'Pedido não cadastrado.'
+      render :new
+    end
   end
 
   def show
