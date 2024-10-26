@@ -36,6 +36,7 @@ describe "Usuário cadastra um pedido" do
     expect(page).to have_content 'Usuário Responsável: João - joao@email.com'
     date = Order.last.estimated_delivery_date
     expect(page).to have_content "Data Prevista de Entrega: #{I18n.localize(date)}"
+    expect(page).to have_content 'Situação do Pedido: Pendente'
     expect(page).not_to have_content 'Galpão Manaus'
     expect(page).not_to have_content 'LG Corporation'
   end
