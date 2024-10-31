@@ -70,7 +70,6 @@ describe "Usuário vê seus próprios pedidos" do
     product_a = ProductModel.create!(name: 'Produto A', weight: 1, width: 10, height: 20, depth:30, supplier: supplier, sku: 'Product-A')
     product_b = ProductModel.create!(name: 'Produto B', weight: 1, width: 10, height: 20, depth:30, supplier: supplier, sku: 'Product-B')
     product_c = ProductModel.create!(name: 'Produto C', weight: 1, width: 10, height: 20, depth:30, supplier: supplier, sku: 'Product-C')
-    andre = User.create!(name: 'Andre', email: 'andre@email.com', password: 'password')
     joao = User.create!(name: 'Joao', email: 'joao@email.com', password: 'password')
     warehouse = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000, 
       address: 'Avenida do Aeroporto, 1000', cep: '15000-000', description: 'Galpão destinado para cargas internacionais')
